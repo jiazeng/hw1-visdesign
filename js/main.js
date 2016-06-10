@@ -1,43 +1,184 @@
-// specify data
-// specify layout
-// create chart
-var trace1 = [
-{
-    x:['Aerobacter aerogenes', ,  '', 'Escherichia coli', 'Klebsiella pneumoniae', 'Mycobacterium tuberculosis', 'Proteus vulgaris', 'Pseudomonas aeruginosa',  'Salmonella schottmuelleri', , 'Staphylococcus aureus', , '', ]
-    
-    x:['Brucella abortus', 'Streptococcus hemolyticus', 'Diplococcus pneumoniae', 'Streptococcus viridans', 'Staphylococcus albus', 'Brucella anthracis', 'Salmonella (Eberthella) typhosa', 'Streptococcus fecalis', ]
-    y: [0.001, 0.001, 0.005, 0.005, 0.007, 1, 1, 1, ]
-    type: 'bar'
+var getSymbolForData = function(data) {
+    var symbolArray = new Array();
+    for (var i = 0; i < data.length; i++) {
+        if (data[i] == 'negative') {
+            symbolArray.push("line");
+        } else {
+            symbolArray.push("cross");
+        }
+    }
+
+    return symbolArray;
 }
+
+var originalData = [
+  {
+    "Bacteria": "Aerobacter aerogenes",
+    "Penicilin": 870,
+    "Streptomycin": 1,
+    "Neomycin": 1.6,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Brucella abortus",
+    "Penicilin": 1,
+    "Streptomycin": 2,
+    "Neomycin": 0.02,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Brucella anthracis",
+    "Penicilin": 0.001,
+    "Streptomycin": 0.01,
+    "Neomycin": 0.007,
+    "Gram Staining": "positive"
+  },
+  {
+    "Bacteria": "Diplococcus pneumoniae",
+    "Penicilin": 0.005,
+    "Streptomycin": 11,
+    "Neomycin": 10,
+    "Gram Staining": "positive"
+  },
+  {
+    "Bacteria": "Escherichia coli",
+    "Penicilin": 100,
+    "Streptomycin": 0.4,
+    "Neomycin": 0.1,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Klebsiella pneumoniae",
+    "Penicilin": 850,
+    "Streptomycin": 1.2,
+    "Neomycin": 1,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Mycobacterium tuberculosis",
+    "Penicilin": 800,
+    "Streptomycin": 5,
+    "Neomycin": 2,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Proteus vulgaris",
+    "Penicilin": 3,
+    "Streptomycin": 0.1,
+    "Neomycin": 0.1,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Pseudomonas aeruginosa",
+    "Penicilin": 850,
+    "Streptomycin": 2,
+    "Neomycin": 0.4,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Salmonella (Eberthella) typhosa",
+    "Penicilin": 1,
+    "Streptomycin": 0.4,
+    "Neomycin": 0.008,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Salmonella schottmuelleri",
+    "Penicilin": 10,
+    "Streptomycin": 0.8,
+    "Neomycin": 0.09,
+    "Gram Staining": "negative"
+  },
+  {
+    "Bacteria": "Staphylococcus albus",
+    "Penicilin": 0.007,
+    "Streptomycin": 0.1,
+    "Neomycin": 0.001,
+    "Gram Staining": "positive"
+  },
+  {
+    "Bacteria": "Staphylococcus aureus",
+    "Penicilin": 0.03,
+    "Streptomycin": 0.03,
+    "Neomycin": 0.001,
+    "Gram Staining": "positive"
+  },
+  {
+    "Bacteria": "Streptococcus fecalis",
+    "Penicilin": 1,
+    "Streptomycin": 1,
+    "Neomycin": 0.1,
+    "Gram Staining": "positive"
+  },
+  {
+    "Bacteria": "Streptococcus hemolyticus",
+    "Penicilin": 0.001,
+    "Streptomycin": 14,
+    "Neomycin": 10,
+    "Gram Staining": "positive"
+  },
+  {
+    "Bacteria": "Streptococcus viridans",
+    "Penicilin": 0.005,
+    "Streptomycin": 10,
+    "Neomycin": 40,
+    "Gram Staining": "positive"
+  }
 ];
 
-// var trace1 = {
-//     x: [1, 2, 3, 4],
-//     y: [10, 15, 13, 17],
-//     mode: 'markers',
-//     type: 'scatter'
-// };
+var lineChartData = [
+    {
+        name: 'Penicilin',
+        x: originalData.map(function(d) {return d['Bacteria']}),
+        y: originalData.map(function(d) {return d['Penicilin']}),
+        type: 'scatter'
+    },
+    {
+        name: 'Streptomycin',
+        x: originalData.map(function(d) {return d['Bacteria']}),
+        y: originalData.map(function(d) {return d['Streptomycin']}),
+        type: 'scatter'
+    },
+    {
+        name: 'Neomycin',
+        x: originalData.map(function(d) {return d['Bacteria']}),
+        y: originalData.map(function(d) {return d['Neomycin']}),
+        type: 'scatter'
+    }
+];
 
-// var trace2 = {
-//     x: [2, 3, 4, 5],
-//     y: [16, 5, 11, 9],
-//     mode: 'lines',
-//     type: 'scatter'
-// };
+var barChartData = [
+    {
+        name: 'Penicilin',
+        x: originalData.map(function(d) {return d['Bacteria']}),
+        y: originalData.map(function(d) {return d['Penicilin']}),
+        type: 'bar'
+    },
+    {
+        name: 'Streptomycin',
+        x: originalData.map(function(d) {return d['Bacteria']}),
+        y: originalData.map(function(d) {return d['Streptomycin']}),
+        type: 'bar'
+    },
+    {
+        name: 'Neomycin',
+        x: originalData.map(function(d) {return d['Bacteria']}),
+        y: originalData.map(function(d) {return d['Neomycin']}),
+        type: 'bar'
+    },
+];
 
-// var trace3 = {
-//     x: [1, 2, 3, 4],
-//     y: [12, 9, 15, 12],
-//     mode: 'lines+markers',
-//     type: 'scatter'
-// };
+var barChartLayout = {
+    title: 'Bar Chart',
+    barmode: 'stack'
+};
 
-// var data = [trace1, trace2, trace3];
+var lineChartLayout = {
+    title: 'Line Chart',
+    margin: {
+        l: 20
+    },
+};
 
-// var layout = {
-//     title: 'Line Plot',
-//     height: window.height,
-//     width: window.width
-// };
-
-// Plotly.newPlot('graph', data, layout);
+Plotly.plot('line-chart-div', lineChartData, lineChartLayout);
+Plotly.plot('bar-chart-div', barChartData, barChartLayout);
