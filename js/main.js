@@ -74,7 +74,7 @@ var originalData = [
     "Gram Staining": "negative"
   },
   {
-    "Bacteria": "Salmonella (Eberthella) typhosa",
+    "Bacteria": "Salmonella typhosa",
     "Penicilin": 1,
     "Streptomycin": 0.4,
     "Neomycin": 0.008,
@@ -129,19 +129,25 @@ var lineChartData = [
         name: 'Penicilin',
         x: originalData.map(function(d) {return d['Bacteria']}),
         y: originalData.map(function(d) {return d['Penicilin']}),
-        type: 'scatter'
+        type: 'scatter',
+        mode: 'markers',
+        marker: { size: 12 }
     },
     {
         name: 'Streptomycin',
         x: originalData.map(function(d) {return d['Bacteria']}),
         y: originalData.map(function(d) {return d['Streptomycin']}),
-        type: 'scatter'
+        type: 'scatter',
+        mode: 'markers',
+        marker: { size: 12 }
     },
     {
         name: 'Neomycin',
         x: originalData.map(function(d) {return d['Bacteria']}),
         y: originalData.map(function(d) {return d['Neomycin']}),
-        type: 'scatter'
+        type: 'scatter',
+        mode: 'markers',
+        marker: { size: 12 }
     }
 ];
 var barChartData = [
@@ -196,7 +202,7 @@ var barChartLayout = {
 var lineChartLayout = {
     margin: {
         l: 40,
-        b: 110,
+        b: 105,
     },
     yaxis: {
       type: 'log',
