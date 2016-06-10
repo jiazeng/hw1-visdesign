@@ -4,10 +4,22 @@
   <meta charset="UTF-8">
   <title>INFO 474 Visualization Design -- Plotly</title>
   <link rel="stylesheet" href="css/main.css">
+  
 </head>
 <body>
-<div id="line-chart-div" class ="change"></div>
+<div id="line-chart-text">
+<h2>Scatter Plot: The Effectiveness of Antibiotics</h2>
+<h3>What is the general effectiveness of antibiotics (Penicillin, Streptomycin, Neomycin) for different bacterial infection?</h3>
+<p>The first visualization is a line chart that describes the bacteria’s minimum inhibitory concentration (MIC) of three antibiotics (penicillin, streptomycin, neomycin). This line graph uses mainly two encodings: position, and color hue. Each encoding is very useful in showing the point of the chart. Position on the x-axis allows the corresponding bacteria name. Position on the y-axis shows the antibiotics’ MIC number for the bacteria. To better display the data, I changed the y-axis into logarithmic scale because there is a large range of quantities and it is hard to show the differences in data with a linear scale. Color encoding used in the chart helps the reader identify the 3 types of antibiotics by differentiate the color. The color blue corresponds to Penicillin, orange corresponds to streptomycin, and green corresponds to neomycin.  During my design decision, I considered using both a line chart and a scatter plot. The reason that I chose to use a scatter plot rather than a line chart is because it only shows the data that has actual meaning. If I use a line chart, the data in between the bacteria will have no meaning and may be misleading. I also want to reveal if there is a relationship of the effectiveness of the antibiotics toward the same bacterial infection. For example, the chart shows that all three antibiotics are less effective for bacteria such as Mycobacterium tuberculosis, while they are more effective for Brucella Anthracis. The chart also shows that Streptomycin and Neomycin have relatively similar performance in comparison with Penicillin.</p>
+</div>
+<div id="line-chart-div"></div>
+<div id="bar-chart-text">
+<h2>Bar Chart</h2>
+</div>
 <div id="bar-chart-div"></div>
+<div id="pie-chart-text">
+<h2>Pie Chart</h2>
+</div>
 <div id="pie-chart-div-penicilin"></div>
 <div id="pie-chart-div-streptomycin"></div>
 <div id="pie-chart-div-neomycin"></div>

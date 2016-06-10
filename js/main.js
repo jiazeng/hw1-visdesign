@@ -204,7 +204,11 @@ var lineChartLayout = {
         l: 40,
         b: 105,
     },
+    xaxis: {
+      title: 'Bacteria'
+    },
     yaxis: {
+      title: 'MIC',
       type: 'log',
       autorange: true
     }
