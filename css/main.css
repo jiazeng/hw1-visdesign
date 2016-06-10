@@ -1,0 +1,23 @@
+#line-chart-div{
+    margin: 100px; 
+    padding: 2em;   
+}
+
+#bar-chart-div{
+    margin: 100px;
+}
+
+#pie-chart-div-penicilin{
+   padding: 2em; 
+}
+
+#pie-chart-div-streptomycin{
+    padding: 2em;
+}
+
+#pie-chart-div-neomycin{
+    padding: 2em;
+}
+
+
+

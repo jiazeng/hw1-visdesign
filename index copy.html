@@ -1,13 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Plotly</title>
+</head>
+<body>
+<div id="line-chart-div"/>
+<div id="bar-chart-div"/>
+<div id="-chart-div"/>
 
-// var getSignedData = function(data) {
-//     for (var i = 0; i < data.length; i++) {
-//         if (originalData[i]['Gram Staining'] == 'negative') {
-//             data[i] = data[i] * -1;
-//         }
-//     }
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+var getSymbolForData = function(data) {
+    var symbolArray = new Array();
+    for (var i = 0; i < data.length; i++) {
+        if (data[i] == 'negative') {
+            symbolArray.push("line");
+        } else {
+            symbolArray.push("cross");
+        }
+    }
 
-//     return data;
-// };
+    return symbolArray;
+}
 
 var originalData = [
   {
@@ -144,6 +159,7 @@ var lineChartData = [
         type: 'scatter'
     }
 ];
+
 var barChartData = [
     {
         name: 'Penicilin',
@@ -165,66 +181,22 @@ var barChartData = [
     },
 ];
 
-var pieChartDataPenicilin = [{
-  values: originalData.map(function(d) {return d['Penicilin']}),
-  labels: originalData.map(function(d) {return d['Bacteria']}),
-  type: 'pie'
-}];
-var pieChartDataStreptomycin = [{
-  values: originalData.map(function(d) {return d['Streptomycin']}),
-  labels: originalData.map(function(d) {return d['Bacteria']}),
-  type: 'pie'
-}];
-var pieChartDataNeomycin = [{
-  values: originalData.map(function(d) {return d['Neomycin']}),
-  labels: originalData.map(function(d) {return d['Bacteria']}),
-  type: 'pie'
-}];
-
 var barChartLayout = {
-    barmode: 'stack',
-    margin: {
-        l: 40,
-        b: 110,
-    },
-    yaxis: {
-      type: 'log',
-      autorange: true
-    }
+    title: 'Bar Chart',
+    barmode: 'stack'
 };
 
 var lineChartLayout = {
+    title: 'Line Chart',
     margin: {
-        l: 40,
-        b: 110,
+        l: 20
     },
-    yaxis: {
-      type: 'log',
-      autorange: true
-    }
 };
-
-var pieChartLayoutPenicilin = {
-    title: 'Penicilin',
-};
-
-var pieChartLayoutStreptomycin = {
-    title: 'Streptomycin'
-};
-
-var pieChartLayoutNeomycin = {
-    title: 'Neomycin',
-    margin: {
-      b:110
-    }
-};
-
-
 
 Plotly.plot('line-chart-div', lineChartData, lineChartLayout);
 Plotly.plot('bar-chart-div', barChartData, barChartLayout);
 
-Plotly.plot('pie-chart-div-penicilin', pieChartDataPenicilin, pieChartLayoutPenicilin);
-Plotly.plot('pie-chart-div-streptomycin', pieChartDataStreptomycin, pieChartLayoutStreptomycin);
-Plotly.plot('pie-chart-div-neomycin', pieChartDataNeomycin, pieChartLayoutNeomycin);
+</script>
 
+</body>
+</html>
