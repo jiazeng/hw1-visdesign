@@ -5,20 +5,35 @@ body {
     margin-right: 10%;
 }
 
-h1, h2 {
+h1 {
+    font-size: 40px;
+    font-weight: 50;
+	font-family: Helvetica, sans-serif;
+}
+
+h2 {
     font-size: 24px;
     font-weight: 50;
 	font-family: Helvetica, sans-serif;
 }
+
+h3 {
+    font-size: 18px;
+    font-weight: 50;
+	font-family: Helvetica, sans-serif;
+}
+
+
 #line-chart-div{
     margin-left: 10%; 
     margin-right: 10%; 
-    padding: 2em;   
+    padding-bottom: 2em;
 }
 
 #bar-chart-div{
     margin-left: 10%;
     margin-right: 10%;
+    padding-bottom: 2em;
 }
 
 #pie-chart-div-penicilin, #pie-chart-div-streptomycin, #pie-chart-div-neomycin{

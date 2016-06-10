@@ -188,12 +188,16 @@ var pieChartDataNeomycin = [{
 }];
 
 var barChartLayout = {
-    barmode: 'stack',
+    barmode: 'group',
     margin: {
         l: 40,
         b: 110,
     },
+     xaxis: {
+      title: 'Bacteria'
+    },
     yaxis: {
+      title: 'MIC',
       type: 'log',
       autorange: true
     }
