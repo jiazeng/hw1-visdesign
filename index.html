@@ -8,34 +8,35 @@
 </head>
 <body>
 <div id="line-chart-text">
-<h1>INFO 474: Visualization Design</h1>
-<h2>Scatter Plot: The Effectiveness of Antibiotics</h2>
-<h3>What is the general effectiveness of antibiotics (Penicillin, Streptomycin, Neomycin) for different bacterial infection?</h3>
-<p>The first visualization is a line chart that describes the bacteria’s minimum inhibitory concentration (MIC) of three antibiotics (penicillin, streptomycin, neomycin). This visualization answers the question that what is the general effectiveness of antibiotics for different bacterial infection. This line graph uses mainly two encodings: position, and color hue. Each encoding is very useful in showing the point of the chart. </p>
+  <h1>INFO 474: Visualization Design</h1>
+  <h2>Scatter Plot: The Effectiveness of Antibiotics</h2>
+  <h3>What is the general effectiveness of antibiotics (Penicillin, Streptomycin, Neomycin) for different bacterial infection?</h3>
+  <p>The first visualization is a line chart that describes the bacteria’s minimum inhibitory concentration (MIC) of three antibiotics (penicillin, streptomycin, neomycin). This visualization answers the question that what is the general effectiveness of antibiotics for different bacterial infection. This line graph uses mainly two encodings: position, and color hue. Each encoding is very useful in showing the point of the chart. </p>
 
-<p>Position on the x-axis allows the corresponding bacteria name. Position on the y-axis shows the antibiotics’ MIC number for the bacteria. To better display the data, I changed the y-axis into logarithmic scale because there is a large range of quantities and it is hard to show the differences in data with a linear scale. Color encoding used in the chart helps the reader identify the 3 types of antibiotics by differentiate the color. The color blue corresponds to Penicillin, orange corresponds to streptomycin, and green corresponds to neomycin.</p>
+  <p>Position on the x-axis allows the corresponding bacteria name. Position on the y-axis shows the antibiotics’ MIC number for the bacteria. One can perceive the data by judging positions along nonaligned scales. This elementary perceptual task shows insights of the general trend of the graph. To better display the data, I changed the y-axis into logarithmic scale because there is a large range of quantities and it is hard to show the differences in data with a linear scale. Color encoding used in the chart helps the reader identify the 3 types of antibiotics by differentiate the color. The color blue corresponds to Penicillin, orange corresponds to streptomycin, and green corresponds to neomycin. </p>
 
-<p>During my design decision, I considered using both a line chart and a scatter plot. The reason that I chose to use a scatter plot rather than a line chart is because it only shows the data that has actual meaning. If I use a line chart, the data in between the bacteria will have no meaning and may be misleading. I also want to reveal if there is a relationship of the effectiveness of the antibiotics toward the same bacterial infection. For example, the chart shows that all three antibiotics are less effective for bacteria such as Mycobacterium tuberculosis, while they are more effective for Brucella Anthracis. The chart also shows that Streptomycin and Neomycin have relatively similar performance in comparison with Penicillin.</p>
-
+  <p>During my design decision, I considered using both a line chart and a scatter plot. The reason that I chose to use a scatter plot rather than a line chart is because it only shows the data that has actual meaning. If I use a line chart, the data in between the bacteria will have no meaning and may be misleading. I also want to reveal if there is a relationship of the effectiveness of the antibiotics toward the same bacterial infection. For example, the chart shows that all three antibiotics are less effective for bacteria such as Mycobacterium tuberculosis, while they are more effective for Brucella Anthracis. The chart also shows that Streptomycin and Neomycin have relatively similar performance in comparison with Penicillin.</p>
 </div>
 <div id="line-chart-div"></div>
+
 <div id="bar-chart-text">
-<h2>Grouped Bar Chart: The Comparison of the Antibiotics Performance</h2>
-<h3>Which antibiotics work best with each bacterial infection?</h3>
-<p>The second chart is a grouped bar chart that uses 3 different encodings: color, position, and length/area. I chose to display the data with grouped bar chart because it is visually easy for viewers to compare among the three antibiotics category. Therefore, it is easy to answer the question of which one works best with each bacterial infection. </p>
-<p>Color encoding is used to differentiate the three antibiotics. Each color corresponds to one antibiotic. It is very easy to identify by looking at the legend (key) on the right. Position on the x-axis shows the bacteria that the antibiotics are used for. Position on the y-axis shows the antibiotics’ MIC number for the bacteria. Viewers can compare the group by judging relative position along the y-axis. By comparing the position of the bars with the axis, people can tell the relative quantity that the bars represent. To better display the data, I changed the y-axis into logarithmic scale like the scatter plot because there is a large range of quantities and it is hard to show the differences in data with a linear scale. Moreover, this bar chart also uses length and area of the rectangles for people to decode the relative values that the bars represent in comparison to each other on the common scale.</p>
-<p>In addition to the visual encodings, I also added labels and keys to help viewers better interpret the data.  For example, when user hovers over the bars, it shows the detailed information of that data including the MIC of each antibiotic and the corresponding bacteria.</p>
+  <h2>Grouped Bar Chart: The Comparison of the Antibiotics Performance</h2>
+  <h3>Which antibiotics work best with each bacterial infection?</h3>
+  <p>The second chart is a grouped bar chart that uses 3 different encodings: color, position, and length/area. I chose to display the data with grouped bar chart because it is visually easy for viewers to compare among the three antibiotics category. Therefore, it is easy to answer the question of which one works best with each bacterial infection. </p>
+  <p>Color encoding is used to differentiate the three antibiotics. Each color corresponds to one antibiotic. It is very easy to identify by looking at the legend (key) on the right. Position on the x-axis shows the bacteria that the antibiotics are used for. Position on the y-axis shows the antibiotics’ MIC number for the bacteria. Viewers can compare the group by judging relative position along the y-axis. By comparing the position of the bars with the axis, people can tell the relative quantity that the bars represent. To better display the data, I changed the y-axis into logarithmic scale like the scatter plot because there is a large range of quantities and it is hard to show the differences in data with a linear scale. Moreover, this bar chart also uses length and area of the rectangles for people to decode the relative values that the bars represent in comparison to each other on the common scale.</p>
+  <p>In addition to the visual encodings, I also added labels and keys to help viewers better interpret the data.  For example, when user hovers over the bars, it shows the detailed information of that data including the MIC of each antibiotic and the corresponding bacteria.</p>
 </div>
 <div id="bar-chart-div"></div>
-<div id="pie-chart-text">
-<h2>Pie Chart</h2>
+<div id="box-plot-text">
+    <h2>Box Plot: The Comparison of Positive and Negative Gram Staining</h2>
+    <h3>What is the difference in antibiotics’ performance on positive and negative gram staining?</h3>
+    <p>The third chart is a set of box plots. I designed the chart in order to answer the question that what is the difference in antibiotics’ performance on positive and negative gram staining. I mainly used 3 visual encodings, color, position, and length/size. </p>
+    <p>The reason that I chose to use box plot is because that it not only shows the median performance but also tells the viewers the best and the worst performance of an antibiotic. The chart provides more statistical information compare to the previous two charts. </p>
+    <p>I used color encoding to differentiate the three different antibiotics. I also used consistent colors for both chart to help viewers identify and compare. Position along a nonaligned scale enables view to judge the overall performance of an antibiotic and to compare the differences with others. Along with position encoding, length and size of the rectangles as well as the lines demonstrate the range of the data as well as the median. For example, it is easy to tell that penicillin works a lot better with Gram-positive bacteria than with Gram-negative bacteria. On the contrast, Streptomycin works better with Gram-negative bacteria. </p>
 </div>
 
-<div id="box-plot">
-  <div id="box-plot-div"></div>
-
 <div id="box-plot-div1"></div>
-<div id="box-plot-div2"></div>
+<div id="box-plot-div2">
   
 </div>
 
