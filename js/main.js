@@ -1,14 +1,27 @@
-
-// var getSignedData = function(data) {
-//     for (var i = 0; i < data.length; i++) {
-//         if (originalData[i]['Gram Staining'] == 'negative') {
-//             data[i] = data[i] * -1;
-//         }
-//     }
-
-//     return data;
-// };
-
+// Function that returns the data that is Gram-negative
+var getNegativeData = function(data) {
+  var negativeData = [];
+  for(var i = 0; i < originalData.length; i++) {
+    if(originalData[i]['Gram Staining'] == 'negative') {
+      negativeData.push(data[i]);
+    } 
+  }
+    return negativeData;
+};
+  
+// Function that returns the data that is Gram-positive
+var getPositiveData = function(data) {
+  var positiveData = [];
+  for(var i = 0; i < originalData.length; i++) {
+    if(originalData[i]['Gram Staining'] == 'positive') {
+      positiveData.push(data[i]);
+    } 
+  }
+  console.log("posdata " + positiveData)
+  return positiveData;
+};
+  
+// The full dataset
 var originalData = [
   {
     "Bacteria": "Aerobacter aerogenes",
@@ -124,6 +137,7 @@ var originalData = [
   }
 ];
 
+//**********************DATA**********************//
 var lineChartData = [
     {
         name: 'Penicilin',
@@ -171,29 +185,106 @@ var barChartData = [
     },
 ];
 
-var pieChartDataPenicilin = [{
-  values: originalData.map(function(d) {return d['Penicilin']}),
-  labels: originalData.map(function(d) {return d['Bacteria']}),
-  type: 'pie'
-}];
-var pieChartDataStreptomycin = [{
-  values: originalData.map(function(d) {return d['Streptomycin']}),
-  labels: originalData.map(function(d) {return d['Bacteria']}),
-  type: 'pie'
-}];
-var pieChartDataNeomycin = [{
-  values: originalData.map(function(d) {return d['Neomycin']}),
-  labels: originalData.map(function(d) {return d['Bacteria']}),
-  type: 'pie'
-}];
+// Function that returns the data for Gram-positive
+var getPositiveData = function(data) {
+  var positiveData = [];
+  for(var i = 0; i < originalData.length; i++) {
+    if(originalData[i]['Gram Staining'] == 'positive') {
+      positiveData.push(data[i]);
+    } 
+  }
+  console.log("posdata " + positiveData)
+  return positiveData;
+};
 
+var x = ['negative', 'negative', 'negative', 'positive', 'positive', 'positive']
+// Data of penicilin
+var negPeni = getNegativeData(originalData.map(function(d) {return d['Penicilin']}));
+var posPeni = getPositiveData(originalData.map(function(d) {return d['Penicilin']}));
+
+// Data of Streptomycin
+var negStre= getNegativeData(originalData.map(function(d) {return d['Penicilin']}));
+var posStre= getPositiveData(originalData.map(function(d) {return d['Streptomycin']}));
+
+// Data of Neomycin
+var negNeo= getNegativeData(originalData.map(function(d) {return d['Neomycin']}));
+var posNeo = getPositiveData(originalData.map(function(d) {return d['Neomycin']}));
+
+// Functions that comebines the data
+var combineData = function(data1, data2) {
+  var data = [];
+  data = data1.concat(data2);
+  console.log(data);
+  return data;
+}
+
+var BoxPlotData = [
+    {
+        name: 'Penicilin',
+        x:x,
+        y: combineData(negPeni, posPeni),
+        type: 'box'
+    },
+    
+    {
+        name: 'Streptomycin',
+        x:x,
+        y: combineData(negStre, posStre),
+        type: 'box'
+    },
+    {
+        name: 'Neomycin',
+        x:x,
+        y: combineData(negNeo, posNeo),
+        type: 'box'
+    }
+]
+
+var posBoxPlotData = [
+    {
+        name: 'Penicilin',
+        y: getPositiveData(originalData.map(function(d) {return d['Penicilin']})),
+        type: 'box'
+    },
+    
+    {
+        name: 'Streptomycin',
+        y: getPositiveData(originalData.map(function(d) {return d['Streptomycin']})),
+        type: 'box'
+    },
+    {
+        name: 'Neomycin',
+        y: getPositiveData(originalData.map(function(d) {return d['Neomycin']})),
+        type: 'box'
+    }
+]
+
+var negBoxPlotData = [
+    {
+        name: 'Penicilin',
+        y: getNegativeData(originalData.map(function(d) {return d['Penicilin']})),
+        type: 'box'
+    },
+    {
+        name: 'Streptomycin',
+        y: getNegativeData(originalData.map(function(d) {return d['Streptomycin']})),
+        type: 'box'
+    },
+    {
+        name: 'Neomycin',
+        y: getNegativeData(originalData.map(function(d) {return d['Neomycin']})),
+        type: 'box'
+    }
+]
+
+//**********************LAYOUT**********************//
 var barChartLayout = {
     barmode: 'group',
     margin: {
         l: 40,
         b: 110,
     },
-     xaxis: {
+    xaxis: {
       title: 'Bacteria'
     },
     yaxis: {
@@ -218,27 +309,48 @@ var lineChartLayout = {
     }
 };
 
-var pieChartLayoutPenicilin = {
-    title: 'Penicilin',
-};
-
-var pieChartLayoutStreptomycin = {
-    title: 'Streptomycin'
-};
-
-var pieChartLayoutNeomycin = {
-    title: 'Neomycin',
-    margin: {
-      b:110
+var BoxPlotLayout = {
+    boxmode:'group',
+    xaxis: {
+      title: 'Antibiotics'
+    },
+    yaxis: {
+      title: 'MIC',
+      type: 'log',
+      autorange: true
     }
-};
+}
 
+var posBoxPlotLayout = {
+    xaxis: {
+      title: 'Antibiotics'
+    },
+    yaxis: {
+      title: 'MIC',
+      type: 'log',
+      autorange: true
+    }
+}
 
+var negBoxPlotLayout = {
+ 
+    xaxis: {
+      title: 'Antibiotics'
+    },
+    yaxis: {
+      title: 'MIC',
+      type: 'log',
+      autorange: true
+    }
+}
 
 Plotly.plot('line-chart-div', lineChartData, lineChartLayout);
 Plotly.plot('bar-chart-div', barChartData, barChartLayout);
+Plotly.plot('box-plot-div', BoxPlotData, BoxPlotLayout);
+Plotly.plot('box-plot-div1', posBoxPlotData, posBoxPlotLayout);
+Plotly.plot('box-plot-div2', negBoxPlotData, negBoxPlotLayout);
 
-Plotly.plot('pie-chart-div-penicilin', pieChartDataPenicilin, pieChartLayoutPenicilin);
-Plotly.plot('pie-chart-div-streptomycin', pieChartDataStreptomycin, pieChartLayoutStreptomycin);
-Plotly.plot('pie-chart-div-neomycin', pieChartDataNeomycin, pieChartLayoutNeomycin);
+// Plotly.plot('pie-chart-div-penicilin', pieChartDataPenicilin, pieChartLayoutPenicilin);
+// Plotly.plot('pie-chart-div-streptomycin', pieChartDataStreptomycin, pieChartLayoutStreptomycin);
+// Plotly.plot('pie-chart-div-neomycin', pieChartDataNeomycin, pieChartLayoutNeomycin);
 

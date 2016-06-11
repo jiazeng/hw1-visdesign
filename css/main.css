@@ -35,14 +35,13 @@ h3 {
     margin-right: 10%;
     padding-bottom: 2em;
 }
-
+/*
 #pie-chart-div-penicilin, #pie-chart-div-streptomycin, #pie-chart-div-neomycin{
    margin-right: 10%;
    padding: 2em; 
-}
+}*/
 
-#line-chart-text,#bar-chart-text, #pie-chart-text {
+#line-chart-text,#bar-chart-text, #box-plot-text {
     margin-left: 10%;
 }
-
 
