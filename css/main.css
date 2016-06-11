@@ -27,19 +27,14 @@ h3 {
 #line-chart-div{
     margin-left: 10%; 
     margin-right: 10%; 
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
 }
 
-#bar-chart-div{
+#bar-chart-div, #box-plot-div1, #box-plot-div2{
     margin-left: 10%;
     margin-right: 10%;
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
 }
-/*
-#pie-chart-div-penicilin, #pie-chart-div-streptomycin, #pie-chart-div-neomycin{
-   margin-right: 10%;
-   padding: 2em; 
-}*/
 
 #line-chart-text,#bar-chart-text, #box-plot-text {
     margin-left: 10%;
